@@ -11,10 +11,6 @@ export function useLocalStorage<T>(key: string, initialValue: T | (() => T)) {
     // GET
     const jsonValue = localStorage.getItem(key)
 
-    console.log(`key: ${key}`)
-    console.log('jsonValue:')
-    console.dir(jsonValue)
-
     if (jsonValue == null) {
       if (typeof initialValue === "function") {
         // cast initialValue() as needed by typescript defined above, then call it
@@ -29,9 +25,6 @@ export function useLocalStorage<T>(key: string, initialValue: T | (() => T)) {
 
   // store in local storage every time key changess
   useEffect(() => {
-    console.log(`key: ${key}`)
-    console.log('value:')
-    console.dir(value)
 
     //SET
     localStorage.setItem(key, JSON.stringify(value))
