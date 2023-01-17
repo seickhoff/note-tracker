@@ -53,20 +53,30 @@ See here: https://react-bootstrap.github.io/
 
 Where property is one of:
 
-m - for classes that set margin
-
-p - for classes that set padding
+- m - for classes that set margin
+- p - for classes that set padding
 
 Where sides is one of:
 
-t - for classes that set margin-top or padding-top
+- t - for classes that set margin-top or padding-top
+- b - for classes that set margin-bottom or padding-bottom
+- l - for classes that set margin-left or padding-left
+- r - for classes that set margin-right or padding-right
+- x - for classes that set both *-left and *-right
+- y - for classes that set both *-top and *-bottom
 
-b - for classes that set margin-bottom or padding-bottom
+## Run server
 
-l - for classes that set margin-left or padding-left
+Runs on port 8090
 
-r - for classes that set margin-right or padding-right
+```
+npm run server
+```
 
-x - for classes that set both *-left and *-right
+## Run app
 
-y - for classes that set both *-top and *-bottom
+Runs on port 8080
+
+```
+npm run dev -- --port 8080
+```

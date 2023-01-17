@@ -7,9 +7,12 @@ import { useEffect, useState } from "react"
 
 export function useLocalStorage<T>(key: string, initialValue: T | (() => T)) {
   const [value, setValue] = useState<T>(() => {
-    
+
+
     // GET
     const jsonValue = localStorage.getItem(key)
+
+    console.log(`GET: ${key} => ${jsonValue}`)
 
     if (jsonValue == null) {
       if (typeof initialValue === "function") {
@@ -28,6 +31,13 @@ export function useLocalStorage<T>(key: string, initialValue: T | (() => T)) {
 
     //SET
     localStorage.setItem(key, JSON.stringify(value))
+
+    fetch(`http://localhost:8090/${key.toLowerCase()}`, {
+      method: 'POST',
+      mode: 'cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(value)
+    })
 
   }, [value, key])
 
